@@ -1,16 +1,13 @@
 import pandas as pd
 import boto3
 
-f = pd.read_excel("/mnt/data/Work/Kian/kyc/test.xlsx")
+f = pd.read_excel("/mnt/data/Work/Kian/kyc/s3/test.xlsx")
 
-# ak = "U58MA5TFBMEWQ8MW3IJI"
-# sk = "1ozVl4yTtTBgmm7xtD8wiZUWRwGcsQROYdg7NRFv"
-# bk = "kyc-image-external"
-# endpoint = "https://s3.kiandigital.com"
+
 ak = input("please enter s3 Access Key: ")
 sk = input("please enter s3 Secret Key: ")
 bk = input("Please enter s3 Bucket name: ")
-endpoint = input("Please enter s3 Endpoint url: ")
+endpoint = input("Please enter s3 Endpoint URL: ")
 s3 = boto3.client('s3',endpoint_url=endpoint,aws_access_key_id=ak,aws_secret_access_key=sk)
 
 try:
@@ -18,6 +15,6 @@ try:
         st = str(f.values[i])
         st = st.replace("']","")
         st = st.replace("['","")
-        s3.download_file(bk,st,"/mnt/data/Work/Kian/kyc/images/%s" % (st))
+        s3.download_file(bk,st,"/mnt/data/Work/Kian/kyc/images/s3/%s" % (st))
 except Exception as e:
     print (e)
