@@ -1,7 +1,7 @@
 import pandas as pd
 import boto3
 
-f = pd.read_excel("/mnt/data/Work/Kian/kyc/s3/test.xlsx")
+f = pd.read_excel("/path/to/excel/file/consisting/file/names")
 
 
 ak = input("please enter s3 Access Key: ")
