@@ -15,6 +15,6 @@ try:
         st = str(f.values[i])
         st = st.replace("']","")
         st = st.replace("['","")
-        s3.download_file(bk,st,"/mnt/data/Work/Kian/kyc/images/s3/%s" % (st))
+        s3.download_file(bk,st,"/path/to/download/destination/%s" % (st))
 except Exception as e:
     print (e)
